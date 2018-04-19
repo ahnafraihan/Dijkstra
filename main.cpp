@@ -60,12 +60,15 @@ void dijkstra(vector<vector<int> > &matrix, int Source) {
                 ind[v] = u;
                 cout << to_string(d[v]) << "," << u;
             }
+            // v is already used
             else if (s[v])
                 cout <<"-"<< " ";
             else if (d[u] == 99999)
                 cout << "Y" << " ";
+            // weight of new path is not smaller than previous path in d[u]
             else if (!(d[u] + matrix[u][v] < d[v]))
                 cout << to_string(d[v]) << "," << ind[v];
+            // no edge from u to v exists
             else if (!matrix[u][v]) {
                 if (d[v] == 99999)
                     cout << "∞" << " ";
